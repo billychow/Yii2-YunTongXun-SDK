@@ -1,0 +1,23 @@
+{
+    "name": "bright-tech/yii2-ace-admin-theme",
+    "description": "云通讯的Yii2 rest扩展",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "GNU GENERAL PUBLIC LICENSE",
+    "authors": [
+        {
+            "name": "BrightTech",
+            "email": "xiao.yanqi@bright-tech.cn"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.0",
+    },
+    "autoload": {
+        "psr-4": {
+            "bright\\sms\\yuntongxun": ""
+        }
+    }
+}
