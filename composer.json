@@ -1,5 +1,5 @@
 {
-    "name": "bright-tech/yii2-ace-admin-theme",
+    "name": "bright-tech/yii2-yuntongxun-sms",
     "description": "云通讯的Yii2 rest扩展",
     "type": "yii2-extension",
     "keywords": ["yii2","extension"],
@@ -13,7 +13,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.0",
+        "yiisoft/yii2": "~2.0.0"
     },
     "autoload": {
         "psr-4": {
