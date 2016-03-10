@@ -1,5 +1,5 @@
 {
-    "name": "bright-tech/yii2-yuntongxun-sms",
+    "name": "bright-tech/yii2-yuntongxun-sdk",
     "description": "云通讯的Yii2 rest扩展",
     "type": "yii2-extension",
     "keywords": ["yii2","extension"],
