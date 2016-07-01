@@ -1,5 +1,5 @@
 <?php
-namespace bright\sms\yuntongxun;
+namespace bright\yii2\yuntongxun;
 /*
  *  Copyright (c) 2014 The CCP project authors. All Rights Reserved.
  *
