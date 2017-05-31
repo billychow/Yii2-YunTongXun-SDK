@@ -2,6 +2,7 @@
 namespace bright\yii2\yuntongxun;
 
 use yii\base\Component;
+
 class SMS extends Component
 {
     // 主帐号,对应开官网发者主账号下的 ACCOUNT SID
@@ -30,15 +31,19 @@ class SMS extends Component
     //是否使用沙盒环境
     public $sandbox = false;
 
-    private $_rest;
+    /* @var \bright\yii2\yuntongxun\RestSDK */
+    protected $_rest;
 
-    public function getRest(){
-        if (!$this->_rest){
-            $this->_rest = new RestSDK($this->serverIP, $this->serverPort, $this->softVersion);
-            $this->_rest->setAccount($this->accountSid, $this->accountToken);
-            $this->_rest->setAppId($this->appId);
+    public function init() {
+        parent::init();
+
+        if(empty($this->accountSid) || empty($this->accountToken) || empty($this->appId)) {
+            throw new InvalidConfigException("accountSid, accountToken and appId cannot be empty!");
         }
-        return $this->_rest;
+
+        $this->_rest = new RestSDK($this->sandbox ? $this->testServerIP : $this->serverIP, $this->serverPort, $this->softVersion);
+        $this->_rest->setAccount($this->accountSid, $this->accountToken);
+        $this->_rest->setAppId($this->appId);
     }
 
     /**
@@ -52,11 +57,9 @@ class SMS extends Component
      */
     public function sendTemplateSMS($to, $datas, $tempId)
     {
-        // 初始化REST SDK
-        $rest = $this->getRest();
         // 发送模板短信
         //         echo "Sending TemplateSMS to $to <br/>";
-        $result = $rest->sendTemplateSMS($to, $datas, $tempId);
+        $result = $this->_rest->sendTemplateSMS($to, $datas, $tempId);
         //         if ($result == NULL) {
         //             echo "result error!";
         //             break;
